@@ -139,12 +139,7 @@ class AuditTrail extends \yii\grid\GridView
 		
 		//prepare column config
 		return [
-			['attribute' => 'happened_at',
-				'value' =>function ($model, $key, $index, $column) use ($attributeOutput, $dataTableOptions) {
-					//catch empty data
-					return gmdate("d/m/Y h:i:s", $model->happened_at + 3600*(-3));
-				}
-			],
+			'happened_at:datetime',
 			[
 				'attribute'=>'type',
 				'format'=>$changeTypeCallback === null ? 'text' : 'raw',
